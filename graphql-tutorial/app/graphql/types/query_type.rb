@@ -1,13 +1,10 @@
 Types::QueryType = GraphQL::ObjectType.define do
   name "Query"
-  # Add root-level fields here.
-  # They will be entry points for queries on your schema.
 
-  # TODO: remove me
-  field :testField, types.String do
-    description "An example field added by the generator"
-    resolve ->(obj, args, ctx) {
-      "Hello World!"
-    }
-  end
+  # 查询只是表示为字段
+  field :allLinks, !types[Types::LinkType] do
+    # 为了取数据，解析器会被执行
+    resolve -> (obj, args, ctx) { Link.all }
+  end 
+                          
 end
