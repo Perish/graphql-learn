@@ -13,7 +13,8 @@ class Resolvers::CreateLink < GraphQL::Function
   def call(_obj, args, _ctx)
     Link.create!(
       description: args[:description],
-      url: args[:url]
+      url: args[:url],
+      user: _ctx[:current_user]
     )
   end 
 end

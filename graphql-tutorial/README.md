@@ -6,6 +6,7 @@
 ### type 定义
 
 GraphQL::ObjectType.define {}
+GraphQL::InputObjectType.define {}
 
 ### resolver 解析器
 
